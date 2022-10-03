@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bot</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/chat.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <div class="collapse bg-dark border border-info" id="navbarHeader">
+            <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                <h4 class="text-info">About</h4>
+                <p class="text-muted">Somos estudiantes de 5to año de Nivel Medio, nuestra orientación es bachiller en software. Asistimos a  "PROA Centro", Escuela experimental con énfasis en TIC de la Dirección General de Educación Técnica y Formación Profesional de Córdoba.
+                    Representamos el Proyecto de Ciencia y Tecnología CHATBOT E.S.I  "E.S.I Educación Sexual Integral en un solo click" de nuestra Escuela.
+                    Pensamos qué diseñar y desarrollar un CHATBOT de E.S.I. apto para múltiples plataformas que centralice en un único sitio, la información acerca de E.S.I., enmarcada en la Ley N° 26150 y en las normativas del Ministerio de Educación, permita a las N,N y A, acceder en un solo click a información acerca de E.S.I. confiable, válida, segura y comprensible.
+                    </p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                <h4 class="text-info">Integrantes??:</h4>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-info">??</a></li>
+                    <li><a href="#" class="text-info">??</a></li>
+                    <li><a href="#" class="text-info">??</a></li>
+                    <li><a href="#" class="text-info">??</a></li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm border border-info">
+            <div class="container">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <strong class="text-info">Chatbot-ESI</strong>
+            </a>
+            <button type="button" class="btn btn-dark rounded-pill btn-outline-info position-absolute top-100 start-50 translate-middle text-uppercase fw-bold" data-bs-toggle="modal" data-bs-target="#miModal">sugerencias</button>
+            <div class="modal fade" id="miModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true" aria-labelledby="staticBackdropLabel">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                    <form id="formulario" action="" method="">
+                        <input type="text" class="form-control" name="texttitle" id="texttitle" placeholder="Nombre y Apellido (opcional)" size="50">
+                        <textarea class="form-control" name="textarea1" id="textarea1" rows="10" placeholder="Ingrese aqui su sugerencia" size="300"></textarea>
+                        <input style="margin-top: 0.5rem;" name="fecha" id="fecha" type="date">
+                        <button type="button" class="btn btn-secondary" style="margin-top: 0.5rem; margin-left: 5.97rem;" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" onclick="datos()" class="btn btn-primary" style="margin-top: 0.5rem;">Enviar Sugerencia</button>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            </div>
+        </div>
+        </header>
+
+        <!-- el medio -->
+        <main>
+        <div class="album py-1 bg-light">
+            <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                
+            </div>
+            </div>
+        </div>    
+        </main>
+
+    <!-- CHAT BAR BLOCK -->
+    <div class="chat-bar-collapsible">
+        <button id="chat-button" type="button" class="collapsible">Click aqui!
+            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+        </button>
+
+        <div class="content">
+            <div class="full-chat-block">
+                <!-- Message Container -->
+                <div class="outer-container">
+                    <div class="chat-container">
+                        <!-- Messages -->
+                        <div id="chatbox">
+                            <h5 id="chat-timestamp"></h5>
+                            <p id="botStarterMessage" class="botText"><span>Cargando...</span></p>
+                        </div>
+
+                        <!-- User input box -->
+                        <div class="chat-bar-input-block">
+                            <div id="userInput">
+                                <input id="textInput" class="input-box" type="text" name="msg"
+                                    placeholder="">
+                                <p></p>
+                            </div>
+
+                            <div class="chat-bar-icons">
+                                <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
+                                    onclick="heartButton()"></i>
+                                <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                    onclick="sendButton()"></i>
+                            </div>
+                        </div>
+
+                        <div id="chat-bar-bottom">
+                            <p></p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="static/scripts/responses.js"></script>
+<script src="static/scripts/chat.js"></script>
+
+</html>
